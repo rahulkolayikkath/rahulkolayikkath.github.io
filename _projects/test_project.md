@@ -1,81 +1,107 @@
 ---
 layout: page
-title: Test Project
-description: this is a test project
-img: assets/img/12.jpg
+title: Understanding Handwritten Exam Answers from Scanned Documents
+description: Segmenting and associating handwritten student answers with questions in scanned exam booklets using vision-language models and spatial reasoning.
+img: assets/img/project1_cover.jpg
 importance: 1
 category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Overview
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+Handwritten document understanding remains a challenging problem, especially in educational settings where structure is weak and variability is high.  
+In this project, I explored how to reliably **segment and label student answers** from scanned, multi-page handwritten exam booklets.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+The core challenge was:
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+> Given a PDF containing multiple pages of handwritten answers—where students may answer questions in arbitrary order, continue answers across pages, and write without strict spatial structure—how can we accurately isolate each answer and associate it with the correct question?
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+---
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## Problem Setting
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+I worked under a few realistic assumptions commonly seen in exam settings:
 
-{% raw %}
+- Students write **question numbers** along the left margin
+- Minimal spacing is left between consecutive answers
+- **Student metadata** (name, roll number) appears on the first page
+- Sub-questions (e.g., *1.a*, *1.b*) are common
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+In practice, however, handwriting quality varies significantly, answers may spill across pages, and marginal or off-boundary writing is frequent—making segmentation difficult.
 
-{% endraw %}
+Traditional OCR and layout-based approaches struggle due to:
+- Noisy handwriting
+- Inconsistent spacing
+- Weak or missing visual boundaries
+
+---
+
+## Initial Attempts and Limitations
+
+The first approach relied on a **layout detection model combined with OCR**. The pipeline attempted to:
+
+- Detect question numbers, answer blocks, and student metadata as regions
+- Use heuristics to map answers to questions
+
+This approach failed in multiple ways:
+
+- OCR struggled to reliably recognize handwritten question numbers
+- Answers spanning multiple pages broke one-to-one mappings
+- Irregular spacing caused layout models to fragment answers
+- Sub-questions confused both detection and mapping logic
+
+These failures highlighted a key limitation:  
+**purely spatial reasoning is brittle for real handwritten data**.
+
+---
+
+## Incorporating Vision-Language Models
+
+In the second iteration, I introduced a **vision-language model** to extract higher-level semantic information directly from page images.
+
+This significantly improved:
+
+- Student metadata extraction
+- Question number ordering
+- Detection of answer continuations across pages
+
+However, segmentation still depended on layout detection, which remained unreliable—especially for sub-questions and loosely structured answers.
+
+---
+
+## Final Approach: Vision + Spatial Reasoning
+
+The final system replaced traditional layout detection with an **image-understanding model capable of visual grounding**.
+
+### Key idea:
+1. Use a vision-language model to infer the **list and order of question numbers**
+2. Prompt the image model to **localize those specific question numbers** on the page
+3. Use the coordinates of successive question numbers to dynamically construct bounding boxes enclosing each answer
+
+This semantic–spatial collaboration proved far more robust:
+
+- Answers spanning multiple pages were handled naturally
+- Sub-questions were grouped correctly
+- Marginal and off-boundary writing was captured
+- No rigid layout assumptions were required
+
+The only persistent failure cases involved **extremely ambiguous handwriting** (e.g., ‘3’ written like ‘8’), which are documented as known limitations.
+
+---
+
+## Outcome and Takeaways
+
+This project reinforced the importance of **combining semantic understanding with spatial reasoning** for document analysis.
+
+Rather than forcing handwritten data into predefined layouts, the system adapts to the structure inferred directly from content—leading to significantly improved robustness in real-world exam data.
+
+---
+
+## Code and Experiments
+
+The full implementation, experiments, and analysis are available here:
+
+👉 **[GitHub Repository Link]**
+
+
