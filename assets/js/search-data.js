@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "A growing collection of selected projects. Click for more details!",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -53,9 +53,9 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "projects-test-project",
-          title: 'Test Project',
-          description: "this is a test project",
+            },},{id: "projects-understanding-handwritten-exam-answers-from-scanned-documents",
+          title: 'Understanding Handwritten Exam Answers from Scanned Documents',
+          description: "Segmenting and associating handwritten student answers with questions in scanned exam booklets using vision-language models and spatial reasoning.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/test_project/";
             },},{
