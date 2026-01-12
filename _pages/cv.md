@@ -1,6 +1,6 @@
 ---
 layout: cv
-permalink: /cv/
+permalink: https://rahulkolayikkath.github.io/personal-website/Rahul_resume.pdf
 title: cv
 nav: true
 nav_order: 1
