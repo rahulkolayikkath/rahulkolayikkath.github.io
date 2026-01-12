@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Rahul Krishna kolayikkath # the website title (if blank, full name will be used instead)
+title: Rahul Krishna Kolayikkath # the website title (if blank, full name will be used instead)
 first_name: Rahul
 middle_name: Krishna 
 last_name: Kolayikkath
@@ -86,7 +86,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Blogs # blog_name will be displayed in your blog page
-blog_description: these posts serve as technical resources for learning and research
+blog_description: these posts serve as technical resources for learning and research(coming soon)
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
