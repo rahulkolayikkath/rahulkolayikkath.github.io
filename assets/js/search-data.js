@@ -9,19 +9,12 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "blog",
-          description: "",
+  },{id: "nav-cv",
+          title: "cv",
+          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-publications",
-          title: "publications",
-          description: "publications by categories in reversed chronological order",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/publications/";
+            window.location.href = "/https:/rahulkolayikkath.github.io/personal-website/resume.pdf";
           },
         },{id: "nav-projects",
           title: "projects",
@@ -30,12 +23,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-cv",
-          title: "cv",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+        },{id: "nav-publications",
+          title: "publications",
+          description: "publications by categories in reversed chronological order",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/cv/";
+            window.location.href = "/publications/";
           },
         },{id: "post-test-blog",
         
@@ -57,7 +50,7 @@ ninja.data = [{
           title: 'Understanding Handwritten Exam Answers from Scanned Documents',
           description: "Segmenting and associating handwritten student answers with questions in scanned exam booklets using vision-language models and spatial reasoning.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/test_project/";
+              window.location.href = "/projects/project_1/";
             },},{
         id: 'social-email',
         title: 'email',
