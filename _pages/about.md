@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: AI Reseacher, <a href='https://www.iitm.ac.in'>IIT Madras</a>, University of Groningen
+subtitle: AI Reseacher
 
 profile:
   align: right
@@ -19,5 +19,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am an AI Engineer/Consultant currently in the process of transitioning into academic research on AI and Foundation Models. Working with TabbieMe, an EdTech startup, I developed a comprehensive service to evaluate students' answer sheets using foundation models. Before being a self-employed consultant, I spent 8 months working with Flexday AI as a Software Engineer. I graduated from IIT Madras in 2024, where I studied B.Tech and M.Tech in Chemical Engineering (Joint Degree).\\
-Research Interests: These days, I spend time thinking about building Personalised AI tutors that operate on an intelligent learning cycle of Adaptive Evaluations and Personalised Remediation.
+Hi, I am Rahul! I am an AI/ML Engineer with a strong interest in transitioning into academic research in Natural Language Processing and AI systems.
+
+In the past, I have worked with <a href='https://www.tabbie.ai/'>TabbieMe</a>, an EdTech startup, where I built tools to support education. Prior to that, I spent eight months working as a Software Engineer at <a href='https://flexday.ai/'>Flexday AI</a>. I graduated from <a href='https://www.iitm.ac.in'>IIT Madras</a> in 2024 with a joint B.Tech and M.Tech degree in Chemical Engineering, where I was fortunate to receive mentorship from <a href='https://home.iitm.ac.in/tpatra/Members.html'>Dr. Tarak Kumar Patra</a>. As part of my academic training, I completed an exchange program at the Department of Computing Science, <a href='https://www.rug.nl/?lang=en'>University of Groningen</a>. During my time at IIT Madras, I also served as a Teaching Assistant for the course _Mathematical Foundations for Data Science_, taught by <a href='https://doms.iitm.ac.in/index.php/nandan-s'>Prof. Nandan Sudarshan</a>.During one of my college summers, I had the opportunity to intern at <a href='https://www.tcs.com/what-we-do/research'>TCS Research</a>.
+
+My current research interests lie in designing personalized AI tutors that adapt to individual learners by modeling their understanding, reasoning processes, and misconceptions. I am actively seeking research roles at the intersection of NLP and AI systems, and if you are looking for a researcher to join your team, please feel free to get in touch.
