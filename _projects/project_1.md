@@ -5,7 +5,7 @@ description: Segmenting and associating handwritten student answers with questio
 img: assets/img/project1_cover.jpg
 importance: 1
 category: work
-related_publications: true
+related_publications: false
 ---
 
 ## Overview
@@ -98,10 +98,11 @@ Rather than forcing handwritten data into predefined layouts, the system adapts 
 
 ---
 
-## Code and Experiments
+## Code
 
-The full implementation, experiments, and analysis are available here:
+👉 **[GitHub Repository Link](https://github.com/rahulkolayikkath/handwritten-exam-parser)**
 
-👉 **[GitHub Repository Link]**
+## References
 
-
+[1] Molmo, A family of open state-of-the-art multimodal AI models, [Blog](https://allenai.org/blog/molmo)
+ 
