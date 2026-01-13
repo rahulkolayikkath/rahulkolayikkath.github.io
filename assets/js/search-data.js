@@ -51,6 +51,11 @@ ninja.data = [{
           description: "Segmenting and associating handwritten student answers with questions in scanned exam booklets using vision-language models and spatial reasoning.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/project_1/";
+            },},{id: "projects-language-modelling-for-learning-robust-polymer-representations",
+          title: 'Language Modelling for Learning Robust Polymer Representations',
+          description: "A BERT based chemical language model to learn polymer representations(Master&#39;s Project)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/project_2/";
             },},{
         id: 'social-email',
         title: 'email',
