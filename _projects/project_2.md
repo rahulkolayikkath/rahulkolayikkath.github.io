@@ -23,18 +23,6 @@ The full deatils of implementation, experiments, and analysis are available here
 
 👉 **[GitHub Repository Link](https://github.com/rahulkolayikkath/BERT-PolyLang)**
 
-## Conclusion and Future Works
-
-Language model-based embeddings have emerged as a promising approach for learning better representations from SMILES (Simplified Molecular-Input Line-Entry System) data in the field of language modeling. Our research has demonstrated that the quality of embeddings improves with access to larger and more diverse training datasets. Language model representations have outperformed traditional hand-crafted methods, highlighting the effectiveness of data-driven techniques. The tokenization approach is a fundamental aspect of any language model, and significant performance differences have been observed between character-level and chunk-level models. Naive attention mechanisms have proven to be suitable for simple vocabularies, while more advanced techniques like flash, sparse, or dilated attention typically work well for larger contexts in natural language processing tasks.
-We have found that pre-training with minimal design and better vocabulary selection is optimal for simple languages. Developing code from scratch using Python and PyTorch has enabled full customization. By far we have built code base for language model pre- training based on masked language modeling. This code base can be trained on any number of sequences with multi-GPU setups. To further advance the field, we have collected 200 million sequences for training, and with sufficient GPU computing resources, they aim to train the largest chemical language model with state-of-the-art performance.
-Future work in this area may involve extending the encoder-only model to an encoder- decoder model, similar to the BART (Bidirectional and Auto-Regressive Transformers) model, unlocking the potential for property-guided molecular generation. Additionally, we are exploring the development of models that can learn an informative and clustered latent space, as clustered spaces lead to controllable generation, which is a desirable outcome in molecular design and optimization.
-
-{% include figure.liquid
-   path="assets/img/projects/project2_2.png"
-   title="High-level overview of the handwritten exam analysis pipeline"
-   class="img-fluid rounded z-depth-1"
-%}
-
 ## References
 
 [1] polyBERT: a chemical language model to enable fully machine-driven ultrafast polymer informatics, [Publication](https://www.nature.com/articles/s41467-023-39868-6)
